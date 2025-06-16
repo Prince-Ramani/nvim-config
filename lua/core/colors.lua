@@ -1,8 +1,9 @@
 
 vim.cmd("colorscheme tokyonight-night") 
 
-vim.cmd([[highlight Normal guibg=#000000]])
+--vim.cmd([[highlight Normal guibg=#000000]])
 
+vim.cmd([[highlight Normal guibg=#070707]])
 -- Change the background and foreground color of the status line
 vim.cmd([[highlight StatusLine guibg=#444444 guifg=#ffffff]]) 
 
