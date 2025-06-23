@@ -1,0 +1,34 @@
+vim.cmd("colorscheme tokyonight-night")
+vim.cmd([[highlight Normal guibg=#160905]])
+-- -- Change the background and foreground color of the status line
+-- -- vim.cmd([[highlight StatusLine guibg=#444444 guifg=#ffffff]])
+
+-- -- Set comment color
+vim.cmd([[highlight Comment guifg=#777777 gui=italic]])
+vim.cmd [[
+ 	hi SignColumn guibg=#200306
+ 	]]
+vim.cmd [[
+  " Command-line background
+  highlight MsgArea guibg=#160905 guifg=#ffffff
+
+  " Command-line text (e.g., when typing :wq)
+  highlight ModeMsg guibg=#071623 guifg=#ffffff gui=bold
+]]
+
+
+
+
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#071623", fg = "#FFFFFF" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#071623", fg = "#200306" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#333333", fg = "#ffffff" })
+
+
+
+
+
+-- LSP diagnostic highlights
+vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = "#FF0000" })
+vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn", { fg = "#d300ff" })
+vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo", { fg = "#ff7000" })
+vim.api.nvim_set_hl(0, "DiagnosticFloatingHint", { fg = "#88c907" })

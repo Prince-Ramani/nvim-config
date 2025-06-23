@@ -13,13 +13,7 @@ require("lazy").setup({
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
-    { "ThePrimeagen/vim-be-good" },
+    { "folke/tokyonight.nvim" },
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
@@ -44,6 +38,24 @@ require("lazy").setup({
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
+    },
+    {
+        "christoomey/vim-tmux-navigator",
+        cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateDown",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+            "TmuxNavigatePrevious",
+            "TmuxNavigatorProcessList",
+        },
+        keys = {
+            { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+            { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+        },
     },
     {
         'tpope/vim-surround',
@@ -74,6 +86,6 @@ require("lazy").setup({
                     markdown = { "prettier" },
                 },
             })
-        end,
+        end
     }
 })

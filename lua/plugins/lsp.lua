@@ -27,7 +27,6 @@ require('mason-lspconfig').setup({
 
 
 
-
 vim.opt.signcolumn = 'yes'
 
 local lspconfig_defaults = require('lspconfig').util.default_config
@@ -54,10 +53,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     end,
 })
-
-
-
-
 
 
 

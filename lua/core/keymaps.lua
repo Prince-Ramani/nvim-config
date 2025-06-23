@@ -1,4 +1,3 @@
-
 vim.api.nvim_set_keymap('n', '<C-B>', '<C-B>zz', { noremap = true, silent = true })
 
 vim.keymap.set('i', '<A-j>', '<Esc>j$a', { noremap = true, silent = true })

@@ -1,15 +1,13 @@
 require('lualine').setup {
     options = {
-        theme = {
-            normal = { a = { fg = '#ffffff', bg = '#7700ff' }, b = { fg = '#d3c6aa"', bg = '#162013' }, c = { fg = '#d3c6aa"', bg = '#162013' } },
-            insert = { a = { fg = '#ffffff', bg = '#327413' } },
-            visual = { a = { fg = '#ffffff', bg = '#d79921' } },
-            replace = { a = { fg = '#ffffff', bg = '#fb4934' } },
-            command = { a = { fg = '#ffffff', bg = '#4b0082' } },
-            inactive = { a = { fg = '#ffffff', bg = '#162013' }, b = { fg = '#ffffff', bg = '#000000' }, c = { fg = '#ffffff', bg = '#162013' } },
-        },                                 -- Change to any theme you prefer
+        -- theme = 'everforest',              -- Change to any theme you prefer
         section_separators = { '', '' },   -- Remove section separators
         component_separators = { '', '' }, -- Remove component separators
+
+   theme = {
+      normal = { c = { fg = colors.fg, bg = colors.bg } },
+      inactive = { c = { fg = colors.fg, bg = colors.bg } },
+    },
     },
     sections = {
         lualine_a = { 'mode' },                               -- Show the current mode (e.g., Normal, Insert)
