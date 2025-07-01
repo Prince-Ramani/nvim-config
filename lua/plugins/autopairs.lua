@@ -1,5 +1,4 @@
-
-require('lazy').setup({
+return {
     {
         'windwp/nvim-autopairs',
         config = function()
@@ -9,5 +8,4 @@ require('lazy').setup({
             })
         end,
     },
-})
-
+}

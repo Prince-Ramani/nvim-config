@@ -1,20 +1,19 @@
-
 require('mason').setup({
-    diagnostics = {
-        virtual_text = {
-            severity = { min = vim.diagnostic.severity.ERROR }, 
-            prefix = "●",  
-        },
-        underline = {
-            severity = { min = vim.diagnostic.severity.WARN },  
-        },
-        signs = true,                                           
-        update_in_insert = false,                               
-        float= {  
-            border = "rounded",
-            source = "always",                                  
-        },
-    },
+    -- diagnostics = {
+    --     virtual_text = {
+    --         severity = { min = vim.diagnostic.severity.ERROR },
+    --         prefix = "●",
+    --     },
+    --     underline = {
+    --         severity = { min = vim.diagnostic.severity.WARN },
+    --     },
+    --     signs = true,
+    --     update_in_insert = false,
+    --     float= {
+    --         border = "rounded",
+    --         source = "always",
+    --     },
+    -- },
 })
 require('mason-lspconfig').setup({
     ensure_installed = { "lua_ls", "pyright", "html", "cssls", "jsonls", "eslint", "tailwindcss", "ts_ls" },
@@ -28,6 +27,23 @@ require('mason-lspconfig').setup({
 
 
 vim.opt.signcolumn = 'yes'
+
+
+vim.diagnostic.config({
+    virtual_text = {
+        severity = { min = vim.diagnostic.severity.ERROR },
+        prefix = "●",
+    },
+    underline = {
+        severity = { min = vim.diagnostic.severity.WARN },
+    },
+    signs = true,
+    update_in_insert = false,
+    float = {
+        border = "rounded",
+        source = "always",
+    },
+})
 
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
@@ -53,7 +69,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     end,
 })
-
-
-
-

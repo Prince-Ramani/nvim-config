@@ -6,14 +6,25 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
+
+
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+    },
+
+
     { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" },
+
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     { "folke/tokyonight.nvim" },
+
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
@@ -57,6 +68,9 @@ require("lazy").setup({
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
+
+    { "rebelot/kanagawa.nvim" },
+    { "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
     {
         'tpope/vim-surround',
     },
@@ -65,7 +79,7 @@ require("lazy").setup({
     },
     { 'tpope/vim-fugitive' },
     { 'justinmk/vim-sneak' },
-    { 'nvim-lualine/lualine.nvim' },
+
     {
         "stevearc/conform.nvim",
         opts = {},
