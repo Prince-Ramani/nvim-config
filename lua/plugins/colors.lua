@@ -1,7 +1,7 @@
 -- rose-pine
 require("rose-pine").setup({
     variant = "auto",      -- auto, main, moon, or dawn
-    dark_variant = "main", -- main, moon, or dawn
+    dark_variant = "moon", -- main, moon, or dawn
     dim_inactive_windows = false,
     extend_background_behind_borders = true,
 
@@ -14,7 +14,7 @@ require("rose-pine").setup({
     styles = {
         bold = true,
         italic = true,
-        transparency = false,
+        transparency = true,
     },
 
     groups = {
@@ -51,12 +51,13 @@ require("rose-pine").setup({
     palette = {
 
         main = {
-            base = '#000000',
-            overlay = '#000000',
+            base = '#161616',
+            overlay = '#161616',
         },
+
         moon = {
-            base = '#000000',
-            overlay = '#000000',
+            base = '#161616',
+            overlay = '#161616',
         },
     },
 

@@ -69,3 +69,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     end,
 })
+
+
+
+
+vim.cmd [[
+  highlight MasonHeader guibg=#000000 guifg=#f38ba8
+  highlight MasonHighlight guifg=#a6e3a1
+  highlight MasonMuted guifg=#6c7086
+  highlight MasonMutedBlock guibg=#000000 guifg=#6c7086
+  highlight MasonHeaderSecondary guifg=#89b4fa
+]]
