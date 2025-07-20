@@ -1,93 +1,33 @@
--- rose-pine
-require("rose-pine").setup({
-    variant = "auto",      -- auto, main, moon, or dawn
-    dark_variant = "moon", -- main, moon, or dawn
-    dim_inactive_windows = false,
-    extend_background_behind_borders = true,
+local current_theme = "rose-pine-moon"
+local themes = {
+    "rose-pine-moon",
+    "catppuccin-latte"
+}
 
-    enable = {
-        terminal = true,
-        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-        migrations = true,        -- Handle deprecated options automatically
-    },
+local theme_index = 1
 
-    styles = {
-        bold = true,
-        italic = true,
-        transparency = true,
-    },
+local function SwitchTheme()
+    vim.ui.select(themes, {
+        prompt = "Select a Theme",
+        format_item = function(theme)
+            return theme
+        end
+    }, function(selected_theme)
+        if selected_theme then
+            vim.cmd("colorscheme " .. selected_theme)
+            current_theme = selected_theme
+            print("Switched to theme: " .. selected_theme)
 
-    groups = {
-        border = "muted",
-        link = "iris",
-        panel = "surface",
+            -- vim.cmd [[
+            --     hi StatusLine guifg=#767676 guibg=#071623 guisp=#ff5f00
+            --     hi StatusLineNC guifg=#767676 guibg=#071623 guisp=#ff0000
+            -- ]]
+        else
+            print("No theme selected.")
+        end
+    end)
+end
 
-        error = "love",
-        hint = "iris",
-        info = "foam",
-        note = "pine",
-        todo = "rose",
-        warn = "gold",
+vim.keymap.set("n", "<leader>ct", SwitchTheme, { desc = "Switch Color Theme" })
 
-        git_add = "foam",
-        git_change = "rose",
-        git_delete = "love",
-        git_dirty = "rose",
-        git_ignore = "muted",
-        git_merge = "iris",
-        git_rename = "pine",
-        git_stage = "iris",
-        git_text = "rose",
-        git_untracked = "subtle",
-
-        h1 = "iris",
-        h2 = "foam",
-        h3 = "rose",
-        h4 = "gold",
-        h5 = "pine",
-        h6 = "foam",
-    },
-
-    palette = {
-
-        main = {
-            base = '#161616',
-            overlay = '#161616',
-        },
-
-        moon = {
-            base = '#161616',
-            overlay = '#161616',
-        },
-    },
-
-    -- NOTE: Highlight groups are extended (merged) by default. Disable this
-    -- per group via `inherit = false`
-    highlight_groups = {
-        -- Comment = { fg = "foam" },
-        -- StatusLine = { fg = "love", bg = "love", blend = 15 },
-        -- VertSplit = { fg = "muted", bg = "muted" },
-        -- Visual = { fg = "base", bg = "text", inherit = false },
-        --
-        TelescopeBorder = { fg = "highlight_high", bg = "none" },
-        TelescopeNormal = { bg = "none" },
-        TelescopePromptNormal = { bg = "base" },
-        TelescopeResultsNormal = { bg = "none" },
-        TelescopeSelection = { fg = "text", bg = "highlight_med" },
-        TelescopeSelectionCaret = { fg = "rose", bg = "highlight_med" },
-    },
-
-    before_highlight = function(group, highlight, palette)
-        -- Disable all undercurls
-        -- if highlight.undercurl then
-        --     highlight.undercurl = false
-        -- end
-        --
-        -- Change palette colour
-        -- if highlight.fg == palette.pine then
-        --     highlight.fg = palette.foam
-        -- end
-    end,
-})
-
-vim.cmd("colorscheme rose-pine-moon")
+-- hi StatusLineNC guifg=#abb2bf guibg=#071623 guisp=#ff0000

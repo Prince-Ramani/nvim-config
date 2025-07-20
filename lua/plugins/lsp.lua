@@ -1,20 +1,3 @@
-require('mason').setup({
-    -- diagnostics = {
-    --     virtual_text = {
-    --         severity = { min = vim.diagnostic.severity.ERROR },
-    --         prefix = "●",
-    --     },
-    --     underline = {
-    --         severity = { min = vim.diagnostic.severity.WARN },
-    --     },
-    --     signs = true,
-    --     update_in_insert = false,
-    --     float= {
-    --         border = "rounded",
-    --         source = "always",
-    --     },
-    -- },
-})
 require('mason-lspconfig').setup({
     ensure_installed = { "lua_ls", "pyright", "html", "cssls", "jsonls", "eslint", "tailwindcss", "ts_ls" },
     handlers = {
@@ -73,10 +56,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 
-vim.cmd [[
-  highlight MasonHeader guibg=#000000 guifg=#f38ba8
-  highlight MasonHighlight guifg=#a6e3a1
-  highlight MasonMuted guifg=#6c7086
-  highlight MasonMutedBlock guibg=#000000 guifg=#6c7086
-  highlight MasonHeaderSecondary guifg=#89b4fa
-]]
+-- vim.cmd [[
+--   highlight MasonHeader guibg=#000000 guifg=#f38ba8
+--   highlight MasonHighlight guifg=#a6e3a1
+--   highlight MasonMuted guifg=#6c7086
+--   highlight MasonMutedBlock guibg=#000000 guifg=#6c7086
+--   highlight MasonHeaderSecondary guifg=#89b4fa
+-- ]]

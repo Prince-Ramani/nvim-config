@@ -6,22 +6,36 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require("lazy").setup({
-
-
+    {
+        "ThePrimeagen/vim-be-good"
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000
+    },
     {
         "rose-pine/neovim",
         name = "rose-pine",
     },
-
-
     { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" },
+    {
+        "folke/zen-mode.nvim",
+    },
 
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+
+    {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function()
+            require("telescope").load_extension("fzf")
+        end,
     },
     { "folke/tokyonight.nvim" },
 
