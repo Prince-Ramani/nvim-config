@@ -10,10 +10,12 @@ vim.o.incsearch = true
 vim.o.termguicolors = true
 vim.o.smartcase = true
 vim.o.ignorecase = true
-
+-- -- Enable cursorline
+-- vim.o.cursorline = true
 vim.o.mouse = 'a'
 
 vim.o.clipboard = 'unnamedplus'
 
 vim.o.wrap = true
 vim.g.mapleader = " "
+vim.opt.guicursor = ""

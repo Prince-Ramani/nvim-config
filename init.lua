@@ -8,7 +8,7 @@ require("plugins.telescope")
 require("plugins.rose-pine")
 require("plugins.zen")
 require("plugins.colors")
-vim.cmd("colorscheme gp")
+vim.cmd("colorscheme impossible")
 
 
 vim.api.nvim_set_keymap("n", "<leader>-", ":Ex<CR>", { noremap = true, silent = true })

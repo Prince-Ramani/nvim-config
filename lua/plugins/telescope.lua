@@ -1,10 +1,10 @@
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set("n", "<leader>a", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>")
 vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>tb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>tgc', ':Telescope git_commits<CR>', { noremap = true, silent = true })
-
 require('telescope').setup {
     defaults = {
         file_ignore_patterns = {

@@ -1,4 +1,4 @@
-vim.g.colors_name = "gp"
+vim.g.colors_name = "impossible"
 local function set(group, options)
     vim.api.nvim_set_hl(0, group, options)
 end
@@ -16,9 +16,9 @@ local colors = {
     error      = "#E57373",
     warning    = "#FFD54F",
     info       = "#4FC1FF",
-    cursorline = "#2c2c2c",
+    cursorline = "#1e1e1e",
     linenr     = "#5A5A5A",
-    cursorlnr  = "#FFD700",
+    cursorlnr  = "#7A7A7A",
     selection  = "#3A5F8A",
 }
 
@@ -30,11 +30,11 @@ set("CursorLine", { bg = colors.cursorline })
 
 set("LineNr", { fg = colors.linenr })
 
-set("CursorLineNr", { fg = colors.cursorlnr, bold = true })
+set("CursorLineNr", { fg = colors.cursorlnr })
 
 set("Visual", { bg = colors.selection })
 
-set("MatchParen", { bg = "#272727", fg = "#FFFFFF", bold = true })
+set("MatchParen", { bg = "#777777", fg = "#FFFFFF", bold = true })
 
 set("Search", { bg = "#44475a", fg = "#ffffff", bold = true })
 
@@ -77,23 +77,23 @@ set("DiagnosticHint", { fg = colors.comment })
 set("SignColumn", { bg = colors.bg })
 
 
-set("Pmenu", { fg = colors.fg, bg = "#777777", blend = 10 })
+set("Pmenu", { fg = colors.fg, bg = "#071623", blend = 10 })
 set("PmenuSel", { fg = colors.fg, bg = colors.selection, bold = true })
 
 set("StatusLine", { fg = "#331832", bg = "#6E75A8" })
 set("StatusLineNC", { fg = "#331832", bg = "#694D75" })
 
-set("NormalNC", { fg = colors.fg, bg = "#0A0A0A" }) -- Slightly darker background for inactive windows
+set("NormalNC", { fg = colors.fg, bg = "#0A0A0A" })
 
 set("TabLine", { fg = "#888888", bg = "#1a1a1a" })
 set("TabLineSel", { fg = colors.fg, bg = "#3c3c3c", bold = true })
 
 
-is_transparent = true
+is_transparent = false
 
 function toggleTransparency()
     if is_transparent then
-        set("Normal", { fg = colors.fg, bg = colors.bg })
+        set("Normal", { fg = colors.fg, bg = "#000000" })
         set("SignColumn", { bg = colors.bg })
         set("NormalNC", { fg = colors.fg, bg = "#0A0A0A" })
         set("VertSplit", { bg = "#2c2c2c" })
@@ -103,23 +103,55 @@ function toggleTransparency()
         set("SignColumn", { bg = "NONE" })
         set("NormalNC", { fg = colors.fg, bg = "NONE" })
         set("VertSplit", { bg = "NONE" })
+        local set = vim.api.nvim_set_hl
+        set(0, "TelescopeNormal", { fg = colors.fg, bg = "NONE" })
+        set(0, "TelescopeResultsBorder", { fg = "#6E75A8" })
+        set(0, "TelescopeResultsTitle", { fg = "#cccccc", bold = true, bg = "NONE" })
+        set(0, "TelescopePreviewBorder", { fg = "#6E75A8", bg = "NONE" })
+        set(0, "TelescopePromptBorder", { fg = "#6E75A8" })
+        set(0, "TelescopePromptTitle", { fg = "#ffffff", bold = true })
+        set(0, "TelescopePromptNormal", { fg = colors.fg, bg = "NONE" })
+        set(0, "TelescopeMatching", { fg = "#8C8C8C", bold = true })
+
+
+        vim.api.nvim_set_hl(0, "MasonHeader", { fg = "#ffffff", bg = "NONE", bold = true })
+        vim.api.nvim_set_hl(0, "MasonHeaderSecondary", { fg = "#ffffff", bg = "NONE" })
+        vim.api.nvim_set_hl(0, "MasonHighlight", { fg = "#d7875f", bold = true })
+        vim.api.nvim_set_hl(0, "MasonHighlightBlock", { fg = "#ffffff", bg = "NONE", bold = true })
+        vim.api.nvim_set_hl(0, "MasonHighlightBlockBold", { fg = "#ffffff", bg = "NONE", bold = true })
+        vim.api.nvim_set_hl(0, "MasonError", { fg = "#ff5f5f", bold = true })
+        vim.api.nvim_set_hl(0, "MasonMuted", { fg = "#888888" })
+        vim.api.nvim_set_hl(0, "MasonMutedBlock", { fg = "#cccccc", bg = "NONE" })
+
+
+
         is_transparent = true
     end
 end
 
-vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua toggleTransparency()<CR>', { noremap = true, silent = true })
-
-
 local set = vim.api.nvim_set_hl
+set(0, "TelescopeNormal", { fg = colors.fg, bg = colors.bg })
 set(0, "TelescopeResultsBorder", { fg = "#6E75A8" })
 set(0, "TelescopeResultsTitle", { fg = "#cccccc", bold = true })
-
 set(0, "TelescopePreviewBorder", { fg = "#6E75A8", })
 set(0, "TelescopePromptBorder", { fg = "#6E75A8" })
 set(0, "TelescopePromptTitle", { fg = "#ffffff", bold = true })
 set(0, "TelescopePromptNormal", { fg = colors.fg })
 set(0, "TelescopeMatching", { fg = "#8C8C8C", bold = true })
 
+
+vim.api.nvim_set_hl(0, "MasonHeader", { fg = "#ffffff", bg = "#5f87ff", bold = true })
+vim.api.nvim_set_hl(0, "MasonHeaderSecondary", { fg = "#ffffff", bg = "#87af5f" })
+vim.api.nvim_set_hl(0, "MasonHighlight", { fg = "#d7875f", bold = true })
+vim.api.nvim_set_hl(0, "MasonHighlightBlock", { fg = "#ffffff", bg = "#af5fff", bold = true })
+vim.api.nvim_set_hl(0, "MasonHighlightBlockBold", { fg = "#ffffff", bg = "#d75f5f", bold = true })
+vim.api.nvim_set_hl(0, "MasonError", { fg = "#ff5f5f", bold = true })
+vim.api.nvim_set_hl(0, "MasonMuted", { fg = "#888888" })
+vim.api.nvim_set_hl(0, "MasonMutedBlock", { fg = "#cccccc", bg = "#444444" })
+
+
+toggleTransparency()
+vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua toggleTransparency()<CR>', { noremap = true, silent = true })
 
 
 vim.keymap.set("n", "<leader>td", function()
