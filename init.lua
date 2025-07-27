@@ -9,9 +9,3 @@ require("plugins.rose-pine")
 require("plugins.zen")
 require("plugins.colors")
 vim.cmd("colorscheme impossible")
-
-
-vim.api.nvim_set_keymap("n", "<leader>-", ":Ex<CR>", { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>td', function()
-    vim.cmd('edit ~/personal/.todo.md')
-end, { desc = 'Open TODO list' })

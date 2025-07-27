@@ -1,60 +1,77 @@
-vim.keymap.set("n", "<A-r>", "<cmd>source %<CR>", { desc = "Execute the current file" })
-vim.keymap.set('n', 'm', function()
+local set = vim.keymap.set
+
+set("n", "<A-r>", "<cmd>source %<CR>", { desc = "Execute the current file" })
+set('n', 'm', function()
     vim.cmd("put! =''")
 end, { noremap = true, silent = true })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+set("v", "J", ":m '>+1<CR>gv=gv")
+set("v", "K", ":m '<-2<CR>gv=gv")
+
+set("n", "<leader>sv", ":vsplit<CR>:Telescope find_files<CR>", opts)
+set("n", "<leader>sh", ":split<CR>:Telescope find_files<CR>", opts)
+
+set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 
-vim.api.nvim_set_keymap('n', '<C-B>', '<C-B>zz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-U>', '<C-U>zz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-D>', '<C-D>zz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-F>', '<C-F>zz', { noremap = true, silent = true })
+set('n', '<C-B>', '<C-B>zz', { noremap = true, silent = true })
+set('n', '<C-U>', '<C-U>zz', { noremap = true, silent = true })
+set('n', '<C-D>', '<C-D>zz', { noremap = true, silent = true })
+set('n', '<C-F>', '<C-F>zz', { noremap = true, silent = true })
 
 
-vim.api.nvim_set_keymap('n', '<Up>', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Down>', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Left>', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Right>', '<Nop>', { noremap = true, silent = true })
+set('n', '<Up>', '<Nop>', { noremap = true, silent = true })
+set('n', '<Down>', '<Nop>', { noremap = true, silent = true })
+set('n', '<Left>', '<Nop>', { noremap = true, silent = true })
+set('n', '<Right>', '<Nop>', { noremap = true, silent = true })
 
 
-vim.keymap.set("i", "<C-c", "<Esc>")
+set("i", "<C-c", "<Esc>")
 
 
-vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
-vim.keymap.set('n', '<leader>q', ':q!<CR>', { desc = 'Quit Vim' })
--- splits i dont use them though
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Navigate to left split' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Navigate to bottom split' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Navigate to top split' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Navigate to right split' })
-
-vim.keymap.set("n", "<C-Up>", ":resize -2<CR>")
-vim.keymap.set("n", "<C-Down>", ":resize +2<CR>")
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
-
-vim.keymap.set("n", "<TAB>", ":bn<CR>")
-vim.keymap.set("n", "<S-TAB>", ":bp<CR>")
-
-vim.api.nvim_set_keymap('n', '<Leader>bl', ':buffers<CR>', { noremap = true, silent = true })
+set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
+set('n', '<leader>q', ':q!<CR>', { desc = 'Quit Vim' })
 
 
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+set('n', '<C-h>', '<C-w>h', { desc = 'Navigate to left split' })
+set('n', '<C-j>', '<C-w>j', { desc = 'Navigate to bottom split' })
+set('n', '<C-k>', '<C-w>k', { desc = 'Navigate to top split' })
+set('n', '<C-l>', '<C-w>l', { desc = 'Navigate to right split' })
 
-vim.keymap.set("n", "H", "^")
-vim.keymap.set("n", "L", "$")
+set("n", "<C-Up>", ":resize -2<CR>")
+set("n", "<C-Down>", ":resize +2<CR>")
+set("n", "<C-Left>", ":vertical resize -2<CR>")
+set("n", "<C-Right>", ":vertical resize +2<CR>")
 
--- creating file
+set("n", "<TAB>", ":bn<CR>")
+set("n", "<S-TAB>", ":bp<CR>")
 
-vim.api.nvim_set_keymap('n', '<leader>n', ':e <cfile><CR>i', { noremap = true })
+set('n', '<Leader>bl', ':buffers<CR>', { noremap = true, silent = true })
 
--- Map <Leader>r to saveas command
-vim.api.nvim_set_keymap('n', '<Leader>r', ':saveas ' .. vim.fn.expand('%:p:h') .. '/', { noremap = true, silent = false })
 
-vim.keymap.set('n', '<leader>rw', 'ciw', { desc = 'Replace word under cursor' })
-vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
-vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
-vim.keymap.set("x", "<leader>p", [["_dp]])
+set("n", "n", "nzzzv")
+set("n", "N", "Nzzzv")
+
+set("n", "Y", "y$")
+
+set('n', '<leader>n', ':e <cfile><CR>i', { noremap = true })
+
+set('n', '<Leader>sa', ':saveas ' .. vim.fn.expand('%:p:h') .. '/',
+    { noremap = true, silent = false })
+
+set('v', '<', '<gv', { noremap = true, silent = true })
+set('v', '>', '>gv', { noremap = true, silent = true })
+set("x", "<leader>p", [["_dp]])
+set('n', '<leader>d', '"_dd', { desc = 'Delete line without yanking' })
+set("n", "<leader>/", ":nohlsearch<CR>", { desc = "Clear search highlight" })
+
+set('n', '<leader>r', 'ciw', { desc = 'Replace current word' })
+
+set('n', '<leader>/', ':Telescope live_grep<CR>', { desc = 'Search text' })
+
+
+set("n", "<leader>o", ":Ex<CR>", { noremap = true, silent = true })
+set('n', '<leader>to', function()
+    vim.cmd('edit ~/personal/.todo.md')
+end, { desc = 'Open TODO list' })

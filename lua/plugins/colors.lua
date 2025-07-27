@@ -1,7 +1,9 @@
 local current_theme = "rose-pine-moon"
 local themes = {
     "rose-pine-moon",
-    "catppuccin-latte"
+    "catppuccin-latte",
+    "wildcharm",
+    "torte"
 }
 
 local theme_index = 1

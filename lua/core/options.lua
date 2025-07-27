@@ -1,21 +1,25 @@
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.smartindent = true
-vim.o.autoindent = true
-vim.o.hlsearch = false
-vim.o.incsearch = true
-vim.o.termguicolors = true
-vim.o.smartcase = true
-vim.o.ignorecase = true
+local opt = vim.opt
+opt.number = true
+opt.relativenumber = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
+opt.autoindent = true
+opt.colorcolumn = "76"
+opt.hlsearch = false
+opt.incsearch = true
+opt.termguicolors = true
+opt.smartcase = true
+opt.ignorecase = true
 -- -- Enable cursorline
--- vim.o.cursorline = true
-vim.o.mouse = 'a'
+-- opt.cursorline = true
+opt.mouse = 'a'
 
-vim.o.clipboard = 'unnamedplus'
+opt.clipboard = 'unnamedplus'
 
-vim.o.wrap = true
+opt.scrolloff = 8
+
+opt.wrap = true
 vim.g.mapleader = " "
-vim.opt.guicursor = ""
+-- optpt.guicursor = ""

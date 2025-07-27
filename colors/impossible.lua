@@ -80,8 +80,9 @@ set("SignColumn", { bg = colors.bg })
 set("Pmenu", { fg = colors.fg, bg = "#071623", blend = 10 })
 set("PmenuSel", { fg = colors.fg, bg = colors.selection, bold = true })
 
-set("StatusLine", { fg = "#331832", bg = "#6E75A8" })
-set("StatusLineNC", { fg = "#331832", bg = "#694D75" })
+-- set("StatusLine", { fg = "#331832", bg = "#6E75A8" })
+set("StatusLine", { fg = "#5eacd3", bg = "#333333", blend = 10 })
+set("StatusLineNC", { fg = "#5eacd3", bg = "#333333" })
 
 set("NormalNC", { fg = colors.fg, bg = "#0A0A0A" })
 
@@ -150,7 +151,6 @@ vim.api.nvim_set_hl(0, "MasonMuted", { fg = "#888888" })
 vim.api.nvim_set_hl(0, "MasonMutedBlock", { fg = "#cccccc", bg = "#444444" })
 
 
-toggleTransparency()
 vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua toggleTransparency()<CR>', { noremap = true, silent = true })
 
 
