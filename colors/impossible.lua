@@ -92,6 +92,7 @@ set("TabLineSel", { fg = colors.fg, bg = "#3c3c3c", bold = true })
 
 is_transparent = false
 
+
 function toggleTransparency()
     if is_transparent then
         set("Normal", { fg = colors.fg, bg = "#000000" })

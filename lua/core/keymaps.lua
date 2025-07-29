@@ -1,5 +1,6 @@
 local set = vim.keymap.set
 
+
 set("n", "<A-r>", "<cmd>source %<CR>", { desc = "Execute the current file" })
 set('n', 'm', function()
     vim.cmd("put! =''")
@@ -71,7 +72,23 @@ set('n', '<leader>r', 'ciw', { desc = 'Replace current word' })
 set('n', '<leader>/', ':Telescope live_grep<CR>', { desc = 'Search text' })
 
 
-set("n", "<leader>o", ":Ex<CR>", { noremap = true, silent = true })
+
+-- Function to toggle Netrw in full-screen
+function ToggleNetrw()
+    -- Check if current buffer is Netrw by filetype or name
+    local is_netrw = vim.bo.filetype == "netrw" or vim.fn.bufname("%"):match("NetrwTreeListing") ~= nil
+    if is_netrw then
+        vim.cmd("bd")      -- Close the current buffer
+    else
+        vim.cmd("Explore") -- Open Netrw in full-screen
+    end
+end
+
+-- Keybinding for <leader>o to toggle Netrw
+vim.keymap.set("n", "<leader>o", ":lua ToggleNetrw()<CR>", { noremap = true, silent = true })
+
+
+-- set("n", "<leader>o", ":Ex<CR>", { noremap = true, silent = true })
 set('n', '<leader>to', function()
     vim.cmd('edit ~/personal/.todo.md')
 end, { desc = 'Open TODO list' })

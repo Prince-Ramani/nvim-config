@@ -11,9 +11,11 @@ require("lazy").setup({
         "ThePrimeagen/vim-be-good"
     },
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000
+        "windwp/nvim-ts-autotag",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end
     },
     {
         "rose-pine/neovim",
@@ -37,14 +39,12 @@ require("lazy").setup({
             require("telescope").load_extension("fzf")
         end,
     },
-    { "folke/tokyonight.nvim" },
-
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
-    { 'neovim/nvim-lspconfig', tag = 'v1.8.0', pin = true },
+    { 'neovim/nvim-lspconfig',           tag = 'v1.8.0',    pin = true },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     {

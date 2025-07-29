@@ -1,4 +1,4 @@
-local opt = vim.opt
+opt = vim.opt
 opt.number = true
 opt.relativenumber = true
 opt.tabstop = 4
@@ -12,10 +12,9 @@ opt.incsearch = true
 opt.termguicolors = true
 opt.smartcase = true
 opt.ignorecase = true
--- -- Enable cursorline
--- opt.cursorline = true
 opt.mouse = 'a'
-
+opt.signcolumn = "yes"
+opt.pumheight = 10
 opt.clipboard = 'unnamedplus'
 
 opt.scrolloff = 8

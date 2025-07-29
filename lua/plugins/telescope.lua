@@ -1,10 +1,17 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set("n", "<leader>a", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>")
-vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>tb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n', '<leader>tgc', ':Telescope git_commits<CR>', { noremap = true, silent = true })
+local set = vim.keymap.set
+set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
+set("n", "<leader>a", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>")
+set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
+set('n', '<leader>tb', builtin.buffers, { desc = 'Telescope buffers' })
+set('n', '<leader>th', builtin.help_tags, { desc = 'Telescope help tags' })
+set('n', '<leader>ct', function()
+    require('telescope.builtin').colorscheme({ enable_preview = true })
+end, { desc = 'Choose colorscheme with preview' })
+set('n', '<leader>c', function()
+    builtin.find_files { cwd = "~/.config/nvim/" }
+end)
+set('n', '<leader>tgc', ':Telescope git_commits<CR>', { noremap = true, silent = true })
 require('telescope').setup {
     defaults = {
         file_ignore_patterns = {
