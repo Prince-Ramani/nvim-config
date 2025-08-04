@@ -7,7 +7,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { "folke/trouble.nvim" },
+    {
+        "folke/trouble.nvim",
+        config = true
+    },
     {
         'kevinhwang91/nvim-ufo',
         dependencies = 'kevinhwang91/promise-async'
