@@ -7,31 +7,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    { "folke/trouble.nvim" },
     {
-        "ThePrimeagen/vim-be-good"
+        'kevinhwang91/nvim-ufo',
+        dependencies = 'kevinhwang91/promise-async'
     },
+    { "mbbill/undotree" },
     {
         "windwp/nvim-ts-autotag",
         event = "InsertEnter",
-        config = function()
-            require("nvim-ts-autotag").setup()
-        end
-    },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
+        config = true
     },
     { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" },
-    {
-        "folke/zen-mode.nvim",
-    },
-
+    { "folke/zen-mode.nvim", },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -42,9 +35,8 @@ require("lazy").setup({
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" }
     },
-    { 'neovim/nvim-lspconfig',           tag = 'v1.8.0',    pin = true },
+    { 'neovim/nvim-lspconfig', tag = 'v1.8.0', pin = true },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     {
@@ -58,51 +50,35 @@ require("lazy").setup({
         lazy = false,
         dependencies = { "williamboman/mason.nvim" },
     },
-
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
     },
+    { 'tpope/vim-commentary' },
     {
-        "christoomey/vim-tmux-navigator",
-        cmd = {
-            "TmuxNavigateLeft",
-            "TmuxNavigateDown",
-            "TmuxNavigateUp",
-            "TmuxNavigateRight",
-            "TmuxNavigatePrevious",
-            "TmuxNavigatorProcessList",
-        },
-        keys = {
-            { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
-            { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
-            { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
-            { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
-            { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-        },
-    },
+        'justinmk/vim-sneak',
+        init = function()
+            vim.g["sneak#label"] = 1
+            vim.g["sneak#use_ic_scs"] = 1
+            vim.g["sneak#s_next"] = 1
+        end
 
-    { "rebelot/kanagawa.nvim" },
-    { "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
-    {
-        'tpope/vim-surround',
     },
-    {
-        'tpope/vim-commentary'
-    },
-    { 'tpope/vim-fugitive' },
-    { 'justinmk/vim-sneak' },
-
     {
         "stevearc/conform.nvim",
         opts = {},
         config = function()
             require("conform").setup({
-                format_on_save = {
-                    lsp_fallback = true,
-                    timeout_ms = 500,
-                },
+                format_on_save = function(bufnr)
+                    if vim.b[bufnr].disable_autoformat then
+                        return
+                    end
+                    return {
+                        timeout_ms = 500,
+                        lsp_fallback = true,
+                    }
+                end,
                 formatters_by_ft = {
                     javascript = { "prettier" },
                     typescript = { "prettier" },

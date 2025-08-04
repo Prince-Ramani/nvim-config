@@ -22,5 +22,4 @@ require 'nvim-treesitter.configs'.setup {
         end,
         additional_vim_regex_highlighting = false,
     },
-    autotag = { enable = true }
 }

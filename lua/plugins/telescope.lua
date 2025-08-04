@@ -5,13 +5,24 @@ set("n", "<leader>a", "<cmd> Telescope find_files follow=true no_ignore=true hid
 set('n', '<leader>g', builtin.live_grep, { desc = 'Telescope live grep' })
 set('n', '<leader>tb', builtin.buffers, { desc = 'Telescope buffers' })
 set('n', '<leader>th', builtin.help_tags, { desc = 'Telescope help tags' })
-set('n', '<leader>ct', function()
+set('n', '<leader>tc', ':Telescope git_commits<CR>', { noremap = true, silent = true })
+set('n', '<A-c>', function()
     require('telescope.builtin').colorscheme({ enable_preview = true })
 end, { desc = 'Choose colorscheme with preview' })
-set('n', '<leader>c', function()
+
+set('n', '<A-n>', function()
     builtin.find_files { cwd = "~/.config/nvim/" }
 end)
-set('n', '<leader>tgc', ':Telescope git_commits<CR>', { noremap = true, silent = true })
+
+
+set('n', '<A-a>', function()
+    builtin.find_files { cwd = "~/.config/alacritty/" }
+end)
+
+set('n', '<A-t>', function()
+    builtin.find_files { cwd = "~/personal/.todos/" }
+end)
+
 require('telescope').setup {
     defaults = {
         file_ignore_patterns = {
@@ -24,7 +35,6 @@ require('telescope').setup {
             "*.test.js",
         },
         previewer = require('telescope.previewers').vim_buffer_cat.new,
-        -- file_sorter = require('telescope.sorters').get_fuzzy_file,
     },
     extensions = {
         fzf = {

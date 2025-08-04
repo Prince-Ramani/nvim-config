@@ -95,7 +95,7 @@ is_transparent = false
 
 function toggleTransparency()
     if is_transparent then
-        set("Normal", { fg = colors.fg, bg = "#000000" })
+        set("Normal", { fg = colors.fg, bg = colors.bg })
         set("SignColumn", { bg = colors.bg })
         set("NormalNC", { fg = colors.fg, bg = "#0A0A0A" })
         set("VertSplit", { bg = "#2c2c2c" })
@@ -131,6 +131,9 @@ function toggleTransparency()
     end
 end
 
+toggleTransparency()
+
+
 local set = vim.api.nvim_set_hl
 set(0, "TelescopeNormal", { fg = colors.fg, bg = colors.bg })
 set(0, "TelescopeResultsBorder", { fg = "#6E75A8" })
@@ -153,7 +156,6 @@ vim.api.nvim_set_hl(0, "MasonMutedBlock", { fg = "#cccccc", bg = "#444444" })
 
 
 vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua toggleTransparency()<CR>', { noremap = true, silent = true })
-
 
 vim.keymap.set("n", "<leader>td", function()
     local line = vim.fn.getline(".")
