@@ -11,9 +11,7 @@ local ftMap = {
 require('ufo').setup({
     open_fold_hl_timeout = 150,
     close_fold_kinds_for_ft = {
-        default = { 'imports', 'comment' },
-        json = { 'array' },
-        c = { 'comment', 'region' }
+
     },
     close_fold_current_line_for_ft = {
         default = true,

@@ -7,6 +7,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    { "fenetikm/falcon" },
+    { "catppuccin/nvim" },
     {
         "folke/trouble.nvim",
         config = true

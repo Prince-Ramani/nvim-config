@@ -22,6 +22,7 @@ local colors = {
     selection  = "#3A5F8A",
 }
 
+
 set("Normal", { fg = colors.fg, bg = colors.bg })
 
 set("Comment", { fg = colors.comment, italic = true })
@@ -77,12 +78,12 @@ set("DiagnosticHint", { fg = colors.comment })
 set("SignColumn", { bg = colors.bg })
 
 
-set("Pmenu", { fg = colors.fg, bg = "#071623", blend = 10 })
+set("Pmenu", { fg = colors.fg, bg = "#161616", })
 set("PmenuSel", { fg = colors.fg, bg = colors.selection, bold = true })
 
 -- set("StatusLine", { fg = "#331832", bg = "#6E75A8" })
-set("StatusLine", { fg = "#5eacd3", bg = "#333333", blend = 10 })
-set("StatusLineNC", { fg = "#5eacd3", bg = "#333333" })
+set("StatusLine", { fg = "#5eacd3", bg = "#161616" })
+set("StatusLineNC", { fg = "#5eacd3", bg = "#161616" })
 
 set("NormalNC", { fg = colors.fg, bg = "#0A0A0A" })
 
@@ -135,7 +136,7 @@ toggleTransparency()
 
 
 local set = vim.api.nvim_set_hl
-set(0, "TelescopeNormal", { fg = colors.fg, bg = colors.bg })
+set(0, "TelescopeNormal", { fg = colors.fg, bg = "NONE" })
 set(0, "TelescopeResultsBorder", { fg = "#6E75A8" })
 set(0, "TelescopeResultsTitle", { fg = "#cccccc", bold = true })
 set(0, "TelescopePreviewBorder", { fg = "#6E75A8", })

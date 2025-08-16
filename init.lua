@@ -9,4 +9,5 @@ require("plugins.ufo")
 require("plugins.undotree")
 require("plugins.trouble")
 require("plugins.zen")
-vim.cmd("colorscheme impossible")
+
+vim.cmd("colorscheme falcon")

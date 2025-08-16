@@ -1,5 +1,5 @@
 require('mason-lspconfig').setup({
-    ensure_installed = { "lua_ls", "pyright", "html", "cssls", "jsonls", "eslint", "tailwindcss", "ts_ls", "clangd" },
+    ensure_installed = { "lua_ls", "pyright", "html", "cssls", "jsonls", "eslint", "tailwindcss", "ts_ls", "clangd", "rust_analyzer", "bashls" },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -39,7 +39,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(event)
         local opts = { buffer = event.buf }
-
         vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
         vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
         vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
@@ -50,10 +49,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
         vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+        vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+        vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+        vim.keymap.set('n', '<Leader>l', function()
+            vim.diagnostic.set_loclist() -- Add all diagnostics to the location list
+            vim.cmd('lopen')             -- Open the location list
+        end, { silent = true })
     end,
 })
-
-
 
 
 -- vim.cmd [[
