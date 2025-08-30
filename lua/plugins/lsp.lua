@@ -7,11 +7,6 @@ require('mason-lspconfig').setup({
     }
 })
 
-
-
-vim.opt.signcolumn = 'yes'
-
-
 vim.diagnostic.config({
     virtual_text = {
         severity = { min = vim.diagnostic.severity.ERROR },
@@ -57,12 +52,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, { silent = true })
     end,
 })
-
-
--- vim.cmd [[
---   highlight MasonHeader guibg=#000000 guifg=#f38ba8
---   highlight MasonHighlight guifg=#a6e3a1
---   highlight MasonMuted guifg=#6c7086
---   highlight MasonMutedBlock guibg=#000000 guifg=#6c7086
---   highlight MasonHeaderSecondary guifg=#89b4fa
--- ]]

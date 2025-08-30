@@ -14,17 +14,10 @@ set('n', '<A-n>', function()
     builtin.find_files { cwd = "~/.config/nvim/" }
 end)
 
-
-set('n', '<A-a>', function()
-    builtin.find_files { cwd = "~/.config/alacritty/" }
-end)
-
-set('n', '<A-t>', function()
-    builtin.find_files { cwd = "~/personal/.todos/" }
-end)
-
 require('telescope').setup {
     defaults = {
+        border = true,
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         file_ignore_patterns = {
             "node_modules/.*",
             "dist/.*",

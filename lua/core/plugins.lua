@@ -7,8 +7,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { "fenetikm/falcon" },
-    { "catppuccin/nvim" },
+    {
+        dir = os.getenv("HOME") .. "/.config/nvim/lua/shizukana.nvim"
+    },
     {
         "folke/trouble.nvim",
         config = true
@@ -28,7 +29,7 @@ require("lazy").setup({
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = { 'nvim-lua/plenary.nvim' },
     },
     {
         "nvim-telescope/telescope-fzf-native.nvim",

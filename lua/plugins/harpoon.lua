@@ -14,11 +14,3 @@ vim.keymap.set("i", "<A-1>", function() harpoon:list():select(1) end)
 vim.keymap.set("i", "<A-2>", function() harpoon:list():select(2) end)
 vim.keymap.set("i", "<A-3>", function() harpoon:list():select(3) end)
 vim.keymap.set("i", "<A-4>", function() harpoon:list():select(4) end)
-
-
-
-vim.keymap.set("n", "<C-[>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-]>", function() harpoon:list():next() end)
-
-vim.keymap.set("i", "<C-[>", function() harpoon:list():prev() end)
-vim.keymap.set("i", "<C-]>", function() harpoon:list():next() end)
