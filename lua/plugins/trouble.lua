@@ -1,10 +1,10 @@
 require('trouble').setup({
 
     action_keys = {
-        close = "q",            -- Close the window
-        jump = { "l", "<cr>" }, -- Jump to the selected diagnostic
-        cancel = { "<esc>" },   -- Cancel any action
-        refresh = "r",          -- Refresh diagnostics
+        close = "q",
+        jump = { "l", "<cr>" },
+        cancel = { "<esc>" },
+        refresh = "r",
     },
 
 

@@ -2,12 +2,9 @@ require("shizukana").setup({
     style = "moon",         -- "moon" | "dawn" | "dusk"
     transparent = true,     -- Transparent background
     terminal_colors = true, -- Set terminal colors
-    transparent_plugins = {
-        telescope = true
-    },
 
     dim_inactive = {
-        enabled = false,   -- Dim inactive windows
+        enabled = true,    -- Dim inactive windows
         shade = "dark",
         percentage = 0.12, -- 12% darker
     },

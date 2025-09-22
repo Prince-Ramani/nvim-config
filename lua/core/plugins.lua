@@ -8,41 +8,36 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        dir = os.getenv("HOME") .. "/.config/nvim/lua/shizukana.nvim"
+        dir = os.getenv("HOME") .. "/.config/nvim/lua/crush.nvim",
     },
+    { "ibhagwan/fzf-lua", },
+    { "avuenja/shizukana.nvim" },
+    { "mbbill/undotree" },
     {
         "folke/trouble.nvim",
         config = true
     },
     {
-        'kevinhwang91/nvim-ufo',
-        dependencies = 'kevinhwang91/promise-async'
-    },
-    { "mbbill/undotree" },
-    {
         "windwp/nvim-ts-autotag",
         event = "InsertEnter",
         config = true
     },
-    { "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" },
-    { "folke/zen-mode.nvim", },
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-    },
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        config = function()
-            require("telescope").load_extension("fzf")
-        end,
+        "nvim-treesitter/nvim-treesitter",
+        branch = 'master',
+        lazy = false,
+        build = ":TSUpdate"
     },
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
     },
-    { 'neovim/nvim-lspconfig', tag = 'v1.8.0', pin = true },
+    {
+        'neovim/nvim-lspconfig',
+        tag = 'v1.8.0',
+        pin = true
+    },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     {
@@ -61,7 +56,6 @@ require("lazy").setup({
         event = "InsertEnter",
         config = true
     },
-    { 'tpope/vim-commentary' },
     {
         'justinmk/vim-sneak',
         init = function()

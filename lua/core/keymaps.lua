@@ -8,8 +8,6 @@ end, { noremap = true, silent = true })
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
-set("n", "<leader>sv", ":vsplit<CR>:Telescope find_files<CR>", opts)
-set("n", "<leader>sh", ":split<CR>:Telescope find_files<CR>", opts)
 
 set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
