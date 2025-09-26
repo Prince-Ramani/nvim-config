@@ -6,11 +6,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
     {
+        name = "crush",
         dir = os.getenv("HOME") .. "/.config/nvim/lua/crush.nvim",
     },
-    { "ibhagwan/fzf-lua", },
+    { "ibhagwan/fzf-lua" },
     { "avuenja/shizukana.nvim" },
     { "mbbill/undotree" },
     {

@@ -102,3 +102,12 @@ end)
 vim.keymap.set("n", "<A-c>", function()
     vim.cmd.FzfLua("colorschemes")
 end)
+
+vim.keymap.set('n', '<A-n>', ":lua require('fzf-lua').files({ cwd = '~/.config/nvim' })<CR>",
+    { noremap = true, silent = true })
+
+vim.keymap.set('n', '<A-a>', ":lua require('fzf-lua').files({ cwd = '~/.config/alacritty' })<CR>",
+    { noremap = true, silent = true })
+
+vim.keymap.set('n', '<A-p>', ":lua require('fzf-lua').files({ cwd = '~/personal/projects/' })<CR>",
+    { noremap = true, silent = true })
