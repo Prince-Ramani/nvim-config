@@ -7,6 +7,9 @@ require("plugins.fzf")
 require("plugins.undotree")
 require("plugins.trouble")
 require("plugins.harpoon")
-require("plugins.shizukana")
 
-vim.cmd("colorscheme crush")
+vim.cmd("colorscheme monkeys")
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })

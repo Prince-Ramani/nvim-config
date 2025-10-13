@@ -4,7 +4,10 @@ require('mason-lspconfig').setup({
         function(server_name)
             require('lspconfig')[server_name].setup({})
         end,
-    }
+    },
+    ui = {
+        border = "rounded",
+    },
 })
 
 vim.diagnostic.config({
