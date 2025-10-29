@@ -4,6 +4,8 @@ if not vim.loop.fs_stat(lazypath) then
         "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath
     })
 end
+
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -11,6 +13,10 @@ require("lazy").setup({
     {
         name = "crush",
         dir = os.getenv("HOME") .. "/.config/nvim/lua/crush.nvim",
+    },
+    { "bettervim/yugen.nvim" },
+    {
+        "jwbaldwin/oscura.nvim",
     },
     { "ibhagwan/fzf-lua" },
     { "mbbill/undotree" },

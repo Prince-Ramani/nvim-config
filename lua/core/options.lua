@@ -1,6 +1,7 @@
+vim.g.mapleader = " "
 opt = vim.opt
-opt.number = true
 
+opt.number = true
 opt.background = "dark"
 opt.relativenumber = true
 opt.tabstop = 4
@@ -21,8 +22,7 @@ opt.updatetime = 50
 opt.timeoutlen = 300
 opt.scrolloff = 7
 opt.sidescrolloff = 7
-vim.opt.swapfile = false
-vim.opt.undofile = true
+opt.swapfile = false
+opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.wrap = true
-vim.g.mapleader = " "

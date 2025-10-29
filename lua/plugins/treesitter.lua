@@ -4,11 +4,8 @@ require 'nvim-treesitter.configs'.setup {
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     sync_install = false,
-
     auto_install = true,
-
     ignore_install = { "ipkg" },
-
     highlight = {
         enable = true,
         disable = function(lang, buf)

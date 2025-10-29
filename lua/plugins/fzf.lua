@@ -90,7 +90,6 @@ require('fzf-lua').setup {
     },
 }
 
--- Key mappings
 vim.keymap.set("n", "<leader>f", function()
     require("fzf-lua").files { silent = true }
 end)

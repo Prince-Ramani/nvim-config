@@ -50,8 +50,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
         vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
         vim.keymap.set('n', '<Leader>l', function()
-            vim.diagnostic.set_loclist() -- Add all diagnostics to the location list
-            vim.cmd('lopen')             -- Open the location list
+            vim.diagnostic.set_loclist()
+            vim.cmd('lopen')
         end, { silent = true })
     end,
 })

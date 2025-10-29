@@ -1,15 +1,12 @@
 local set = vim.keymap.set
 
--- NO ARROWS
 set('n', '<Up>', '<Nop>', { noremap = true, silent = true })
 set('n', '<Down>', '<Nop>', { noremap = true, silent = true })
 set('n', '<Left>', '<Nop>', { noremap = true, silent = true })
 set('n', '<Right>', '<Nop>', { noremap = true, silent = true })
 
---REMAP
 set("i", "<C-c", "<Esc>")
 
---NORMAL MODE
 set("n", "<A-r>", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
 set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -23,7 +20,6 @@ set('n', '<C-F>', '<C-F>zz', { noremap = true, silent = true })
 set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 set('n', '<leader>q', ':q!<CR>', { desc = 'Quit Vim' })
 
---Splits
 set('n', '<C-h>', '<C-w>h', { desc = 'Navigate to left split' })
 set('n', '<C-j>', '<C-w>j', { desc = 'Navigate to bottom split' })
 set('n', '<C-k>', '<C-w>k', { desc = 'Navigate to top split' })
@@ -33,9 +29,6 @@ set("n", "<C-Up>", ":resize -2<CR>")
 set("n", "<C-Down>", ":resize +2<CR>")
 set("n", "<C-Left>", ":vertical resize -2<CR>")
 set("n", "<C-Right>", ":vertical resize +2<CR>")
-
-
--- Buffers
 
 set("n", "<TAB>", ":bn<CR>")
 set("n", "<S-TAB>", ":bp<CR>")
@@ -54,11 +47,14 @@ set("n", "<leader>/", ":nohlsearch<CR>", { desc = "Clear search highlight" })
 
 set('n', '<leader>r', 'ciw', { desc = 'Replace current word' })
 
---visual
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Netrw
+
+set('n', 'm', function()
+    vim.cmd("put! =''")
+end, { noremap = true, silent = true })
+
 function ToggleNetrw()
     local is_netrw = vim.bo.filetype == "netrw" or vim.fn.bufname("%"):match("NetrwTreeListing") ~= nil
     if is_netrw then
@@ -69,12 +65,3 @@ function ToggleNetrw()
 end
 
 set("n", "<leader>o", ":lua ToggleNetrw()<CR>", { noremap = true, silent = true })
-
--- new line
-set('n', 'm', function()
-    vim.cmd("put! =''")
-end, { noremap = true, silent = true })
-
--- useless
-
-set("n", "<A-d>", ":.!date<CR>")

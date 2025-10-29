@@ -1,13 +1,10 @@
 require('trouble').setup({
-
     action_keys = {
         close = "q",
         jump = { "l", "<cr>" },
         cancel = { "<esc>" },
         refresh = "r",
     },
-
-
     use_diagnostic_signs = true,
 })
 
