@@ -16,7 +16,7 @@ local shared_winopts = {
     border = 'single',
     preview = {
         scrollbar = false,
-        border = 'single',
+        border = 'none',
     },
 }
 

@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 opt = vim.opt
-
 opt.number = true
 opt.background = "dark"
 opt.relativenumber = true
@@ -9,7 +8,7 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 opt.autoindent = true
-opt.colorcolumn = "76"
+opt.colorcolumn = "80"
 opt.hlsearch = true
 opt.incsearch = true
 opt.termguicolors = true

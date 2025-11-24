@@ -14,10 +14,7 @@ require("lazy").setup({
         name = "crush",
         dir = os.getenv("HOME") .. "/.config/nvim/lua/crush.nvim",
     },
-    { "bettervim/yugen.nvim" },
-    {
-        "jwbaldwin/oscura.nvim",
-    },
+    { "jwbaldwin/oscura.nvim" },
     { "ibhagwan/fzf-lua" },
     { "mbbill/undotree" },
     {

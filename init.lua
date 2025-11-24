@@ -8,4 +8,4 @@ require("plugins.undotree")
 require("plugins.trouble")
 require("plugins.harpoon")
 
-vim.cmd.colorscheme("oscura")
+vim.cmd("colorscheme blossom")
