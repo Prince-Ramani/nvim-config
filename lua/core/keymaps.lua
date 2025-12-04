@@ -1,13 +1,15 @@
 local set = vim.keymap.set
 
+set("i", "<C-c", "<Esc>")
+
+vim.keymap.set("n", "<A-r>", function()
+    dofile(vim.fn.stdpath("config") .. "/init.lua")
+end, { desc = "Source init.lua" })
+
 set('n', '<Up>', '<Nop>', { noremap = true, silent = true })
 set('n', '<Down>', '<Nop>', { noremap = true, silent = true })
 set('n', '<Left>', '<Nop>', { noremap = true, silent = true })
 set('n', '<Right>', '<Nop>', { noremap = true, silent = true })
-
-set("i", "<C-c", "<Esc>")
-
-set("n", "<A-r>", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
 set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -39,8 +41,8 @@ set("n", "N", "Nzzzv")
 
 set('v', '<', '<gv', { noremap = true, silent = true })
 set('v', '>', '>gv', { noremap = true, silent = true })
-set("x", "<leader>p", [["_dp]])
 
+set("x", "<leader>p", [["_dp]])
 set('n', '<leader>d', '"_dd', { desc = 'Delete line without yanking' })
 
 set("n", "<leader>/", ":nohlsearch<CR>", { desc = "Clear search highlight" })
@@ -49,7 +51,6 @@ set('n', '<leader>r', 'ciw', { desc = 'Replace current word' })
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
-
 
 set('n', 'm', function()
     vim.cmd("put! =''")

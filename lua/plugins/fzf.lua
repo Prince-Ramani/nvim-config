@@ -2,21 +2,30 @@ local actions = require('fzf-lua.actions')
 
 local shared_fd_opts = table.concat({
     '--hidden',
+    '--follow',
     '--exclude .git',
     '--exclude node_modules',
     '--exclude dist',
     '--exclude target',
     '--exclude coverage',
+    '--exclude build',
+    '--exclude .vscode',
+    '--exclude .idea',
     '--exclude "*.test.js"',
     '--exclude "*.min.js"',
-    '--exclude "*.log"'
+    '--exclude "*.log"',
+    '--exclude "*.lock"',
+    '--exclude "__pycache__"',
+    '--exclude "*.pyc"',
+    '--exclude ".DS_Store"'
 }, ' ')
 
 local shared_winopts = {
-    border = 'single',
+    border = 'none',
     preview = {
         scrollbar = false,
         border = 'none',
+        layout = 'vertical'
     },
 }
 
@@ -55,17 +64,23 @@ require('fzf-lua').setup {
     },
 
     files = {
+        multiprocess = true,
         fd_opts = shared_fd_opts,
         winopts = shared_winopts,
     },
 
     grep = {
+        multiprocess = true,
         fd_opts = shared_fd_opts,
         winopts = shared_winopts,
     },
 
     buffers = {
         fd_opts = shared_fd_opts,
+        winopts = shared_winopts,
+    },
+
+    diagnostics = {
         winopts = shared_winopts,
     },
 
@@ -97,6 +112,15 @@ end)
 vim.keymap.set("n", "<leader>g", function()
     require("fzf-lua").live_grep { silent = true, multiprocess = true }
 end)
+
+vim.keymap.set("n", "<leader>d", function()
+    require("fzf-lua").diagnostics_document()
+end, { desc = "Document Diagnostics" })
+
+vim.keymap.set("n", "<leader>D", function()
+    require("fzf-lua").diagnostics_workspace()
+end, { desc = "Workspace Diagnostics" })
+
 
 vim.keymap.set("n", "<A-c>", function()
     vim.cmd.FzfLua("colorschemes")

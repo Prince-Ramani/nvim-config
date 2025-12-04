@@ -1,27 +1,39 @@
+local opt = vim.opt
 vim.g.mapleader = " "
-opt = vim.opt
+
+
 opt.number = true
-opt.background = "dark"
 opt.relativenumber = true
+opt.signcolumn = "yes"
+opt.termguicolors = true
+opt.colorcolumn = "80"
+opt.background = "dark"
+
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
-opt.smartindent = true
-opt.autoindent = true
-opt.colorcolumn = "80"
+
 opt.hlsearch = true
 opt.incsearch = true
-opt.termguicolors = true
+
+opt.smartindent = true
+opt.autoindent = true
+
 opt.smartcase = true
 opt.ignorecase = true
-opt.signcolumn = "yes"
+
 opt.pumheight = 10
-opt.clipboard = 'unnamedplus'
-opt.updatetime = 50
+
+opt.updatetime = 200
 opt.timeoutlen = 300
+
 opt.scrolloff = 7
 opt.sidescrolloff = 7
+
 opt.swapfile = false
 opt.undofile = true
+
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.wrap = true
+
+opt.clipboard = 'unnamedplus'
