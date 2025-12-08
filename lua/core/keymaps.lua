@@ -66,3 +66,16 @@ function ToggleNetrw()
 end
 
 set("n", "<leader>o", ":lua ToggleNetrw()<CR>", { noremap = true, silent = true })
+
+
+-- transparency
+function ToggleTransparency()
+    local is_netrw = vim.bo.filetype == "netrw" or vim.fn.bufname("%"):match("NetrwTreeListing") ~= nil
+    if is_netrw then
+        vim.cmd("bd")
+    else
+        vim.cmd("Explore")
+    end
+end
+
+set("n", "<leader>t", ":lua ToggleTransparency()<CR>", { noremap = true, silent = true })

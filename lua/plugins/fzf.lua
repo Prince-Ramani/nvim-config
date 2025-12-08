@@ -34,7 +34,7 @@ require('fzf-lua').setup {
     fzf_opts = {
         ['--cycle'] = true,
         ['--layout'] = 'default',
-        ['--pointer'] = ">",
+        -- ['--pointer'] = ">",
         ['--no-scrollbar'] = true,
     },
 

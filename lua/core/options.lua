@@ -13,7 +13,7 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 
-opt.hlsearch = true
+opt.hlsearch = false
 opt.incsearch = true
 
 opt.smartindent = true
@@ -25,7 +25,7 @@ opt.ignorecase = true
 opt.pumheight = 10
 
 opt.updatetime = 200
-opt.timeoutlen = 300
+opt.timeoutlen = 200
 
 opt.scrolloff = 7
 opt.sidescrolloff = 7
@@ -35,5 +35,7 @@ opt.undofile = true
 
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.wrap = true
+
+opt.cursorline = true
 
 opt.clipboard = 'unnamedplus'

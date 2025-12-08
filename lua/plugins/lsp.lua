@@ -1,5 +1,5 @@
 require('mason-lspconfig').setup({
-    ensure_installed = { "lua_ls", "pyright", "html", "cssls", "jsonls", "eslint", "tailwindcss", "ts_ls", "clangd", "rust_analyzer", "bashls" },
+    ensure_installed = { "pyright", "html", "cssls", "jsonls", "eslint", "tailwindcss", "ts_ls", "clangd", "rust_analyzer", "bashls", "yamlls", "dockerls" },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -9,6 +9,22 @@ require('mason-lspconfig').setup({
         border = "rounded",
     },
 })
+
+-- version mismatch
+vim.lsp.config['lua_ls'] = {
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            }
+        }
+    }
+}
+
+vim.lsp.enable('lua_ls')
 
 vim.diagnostic.config({
     virtual_text = {
@@ -32,6 +48,17 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
     lspconfig_defaults.capabilities,
     require('cmp_nvim_lsp').default_capabilities()
 )
+
+require('lspconfig.configs').my_custom_lsp = {
+    default_config = {
+        cmd = { '/usr/bin/lua-language-server' },
+        filetypes = { 'lua' },
+        root_dir = function(fname)
+            return lsp.util.find_git_ancestor(fname)
+        end,
+        settings = {},
+    },
+}
 
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
