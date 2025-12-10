@@ -1,6 +1,7 @@
 {
   "cmp-nvim-lsp": { "branch": "main", "commit": "cbc7b02bb99fae35cb42f514762b89b5126651ef" },
   "conform.nvim": { "branch": "master", "commit": "ffe26e8df8115c9665d24231f8a49fadb2d611ce" },
+  "dark_flat.nvim": { "branch": "main", "commit": "37b75c99d3294efdefeef2149687b96c42da4fa2" },
   "fzf-lua": { "branch": "main", "commit": "ac9b7de339bc4c1461c5c87fdd07c0daa9f11f86" },
   "gruber-darker.nvim": { "branch": "main", "commit": "98a2e141981cbd5a194a97eae024bf55af854579" },
   "harpoon": { "branch": "harpoon2", "commit": "87b1a3506211538f460786c23f98ec63ad9af4e5" },

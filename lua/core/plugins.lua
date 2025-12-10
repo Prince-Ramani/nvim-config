@@ -15,6 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    { "sekke276/dark_flat.nvim" },
     {
         "blazkowolf/gruber-darker.nvim",
         opts = {
@@ -76,7 +77,5 @@ require("lazy").setup({
         event = "InsertEnter",
         config = true
     },
-    {
-        "stevearc/conform.nvim",
-    }
+    { "stevearc/conform.nvim" }
 })

@@ -13,7 +13,7 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 
 opt.smartindent = true
