@@ -34,9 +34,8 @@ require('fzf-lua').setup {
     fzf_opts = {
         ['--cycle'] = true,
         ['--layout'] = 'default',
-        ['--pointer'] = '⟢',
-        ['--no-scrollbar'] = true,
-
+        ['--pointer'] = ' ',
+        ['--no-scrollbar'] = "",
     },
 
     keymap = {
@@ -124,8 +123,11 @@ end, { desc = "Workspace Diagnostics" })
 
 
 vim.keymap.set("n", "<A-c>", function()
-    vim.cmd.FzfLua("colorschemes")
-end)
+    require("fzf-lua").colorschemes()
+end, { desc = "Preview & Set Colorscheme" })
+
+
+
 
 vim.keymap.set('n', '<A-v>', ":lua require('fzf-lua').files({ cwd = '~/.config/nvim' })<CR>",
     { noremap = true, silent = true })

@@ -17,5 +17,6 @@ require("conform").setup({
         html = { "prettier" },
         css = { "prettier" },
         markdown = { "prettier" },
+        rust = { "rustfmt" },
     },
 })

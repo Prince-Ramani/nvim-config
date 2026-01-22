@@ -15,26 +15,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { "sekke276/dark_flat.nvim" },
-    {
-        "blazkowolf/gruber-darker.nvim",
-        opts = {
-            bold = false,
-            italic = {
-                strings = false,
-                operators = false,
-            },
-        }
-    },
     {
         "nvim-treesitter/nvim-treesitter",
         branch = 'master',
         lazy = false,
         build = ":TSUpdate",
     },
-    {
-        'neovim/nvim-lspconfig',
-    },
+    { 'neovim/nvim-lspconfig', },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     {
@@ -77,5 +64,5 @@ require("lazy").setup({
         event = "InsertEnter",
         config = true
     },
-    { "stevearc/conform.nvim" }
+    { "stevearc/conform.nvim" },
 })
