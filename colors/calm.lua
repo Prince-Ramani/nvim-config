@@ -3,17 +3,16 @@ if vim.fn.exists("syntax_on") then
     vim.cmd("syntax reset")
 end
 
-vim.g.colors_name = "lost"
-local no = false
+vim.g.colors_name = "calm"
 
 local c = {
-    bg      = "#070707",
+    bg      = "#161616",
     fg      = "#f7f7f7",
     muted   = "#444444",
     subtle  = "#9a9a9a",
     keyword = "#ffffff",
-    string  = "#79a8ff",
-    boolean = "#EDEEC9",
+    string  = "#A9D3FF",
+    boolean = "#D1F0B1",
     type    = "#E39695",
     error   = "#ff5f5f",
     warning = "#ffaf5f",
@@ -25,14 +24,14 @@ local function hl(group, opts)
 end
 
 hl("Normal", { fg = c.fg, bg = c.bg })
+hl("NormalFloat", { fg = c.fg, bg = c.bg })
 hl("NormalNC", { fg = c.fg, bg = c.bg })
+hl("FloatBorder", { fg = c.fg, bg = c.bg })
 hl("LineNr", { fg = c.muted })
-hl("CursorLine", { bg = "#151515" })
-hl("CursorLineNr", { fg = c.fg })
 hl("VertSplit", { fg = c.bg })
 hl("StatusLine", { fg = c.fg, bg = "#151515" })
 hl("StatusLineNc", { fg = c.fg, bg = "#151515" })
-hl("Visual", { bg = "#222222" })
+hl("Visual", { bg = "#252525" })
 hl("Boolean", { fg = c.boolean })
 
 hl("Comment", { fg = c.muted })
@@ -95,11 +94,15 @@ hl("@lsp.typemod.keyword.controlFlow", { link = "Keyword" })
 hl("Search", { bg = "#303030" })
 hl("IncSearch", { bg = "#404040" })
 
-hl("FzfLuaFzfMatch", { fg = c.string })
 
 hl("Cursor", { fg = c.bg, bg = c.fg })
 
-hl("Pmenu", { fg = c.fg, bg = "#161616" })
+hl("Pmenu", { fg = c.fg, bg = "#000000" })
 hl("PmenuSel", { fg = c.fg, bg = "#222222" })
 hl("PmenuSbar", { bg = "#151515" })
 hl("PmenuThumb", { bg = "#303030" })
+
+hl("Whitespace", { fg = "#1f1f1f" })
+hl("IndentBlanklineChar", { fg = "#1f1f1f" })
+
+hl("FzfLuaFzfMatch", { fg = c.string })

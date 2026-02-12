@@ -14,6 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
@@ -21,7 +22,8 @@ require("lazy").setup({
         lazy = false,
         build = ":TSUpdate",
     },
-    { 'neovim/nvim-lspconfig', },
+    { 'neovim/nvim-lspconfig' },
+    { "j-hui/fidget.nvim", },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     {

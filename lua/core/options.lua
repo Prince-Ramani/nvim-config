@@ -7,7 +7,6 @@ opt.signcolumn = "yes"
 opt.termguicolors = true
 opt.colorcolumn = "80"
 opt.syntax = "on"
-opt.mouse = ""
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true

@@ -1,5 +1,6 @@
 local actions = require('fzf-lua.actions')
 
+
 local shared_fd_opts = table.concat({
     '--hidden',
     '--follow',
@@ -22,6 +23,7 @@ local shared_fd_opts = table.concat({
 
 local shared_winopts = {
     border = 'none',
+    scrollbar = false,
     preview = {
         scrollbar = false,
         border = 'none',
@@ -125,8 +127,6 @@ end, { desc = "Workspace Diagnostics" })
 vim.keymap.set("n", "<A-c>", function()
     require("fzf-lua").colorschemes()
 end, { desc = "Preview & Set Colorscheme" })
-
-
 
 
 vim.keymap.set('n', '<A-v>', ":lua require('fzf-lua').files({ cwd = '~/.config/nvim' })<CR>",
