@@ -1,14 +1,15 @@
 local opt = vim.opt
 vim.g.mapleader = " "
 
+opt.mouse = ""
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.termguicolors = true
 opt.colorcolumn = "80"
 opt.syntax = "on"
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 8
+opt.shiftwidth = 8
 opt.expandtab = true
 opt.hlsearch = false
 opt.incsearch = true
@@ -27,4 +28,7 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.wrap = true
 opt.showmode = false
 opt.clipboard = 'unnamedplus'
-opt.statusline = " %f %h%m%r%=%-14.(%l,%c%V%) %P "
+opt.statusline = " %f %h%m%r"
+
+vim.opt.ruler = false
+vim.opt.showcmd = false

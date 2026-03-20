@@ -8,6 +8,13 @@ require("conform").setup({
             lsp_fallback = true,
         }
     end,
+    formatters = {
+        clang_format = {
+            prepend_args = {
+                "--style={BasedOnStyle: LLVM, UseTab: Always, IndentWidth: 8, TabWidth: 8}"
+            },
+        },
+    },
     formatters_by_ft = {
         javascript = { "prettier" },
         typescript = { "prettier" },
@@ -18,5 +25,7 @@ require("conform").setup({
         css = { "prettier" },
         markdown = { "prettier" },
         rust = { "rustfmt" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
     },
 })

@@ -1,26 +1,26 @@
 vim.cmd("highlight clear")
 if vim.fn.exists("syntax_on") then
-    vim.cmd("syntax reset")
+        vim.cmd("syntax reset")
 end
 
 vim.g.colors_name = "calm"
 
 local c = {
-    bg      = "#161616",
-    fg      = "#f7f7f7",
-    muted   = "#444444",
-    subtle  = "#9a9a9a",
-    keyword = "#ffffff",
-    string  = "#A9D3FF",
-    boolean = "#D1F0B1",
-    type    = "#E39695",
-    error   = "#ff5f5f",
-    warning = "#ffaf5f",
-    info    = "#5fafff",
+        bg      = "NONE",
+        fg      = "#d4d4d4",
+        muted   = "#444444",
+        subtle  = "#9a9a9a",
+        keyword = "#e6e6e6",
+        string  = "#8fb4d8",
+        boolean = "#c3e6a1",
+        type    = "#d8a0a0",
+        error   = "#ff5f5f",
+        warning = "#ffaf5f",
+        info    = "#5fafff",
 }
 
 local function hl(group, opts)
-    vim.api.nvim_set_hl(0, group, opts)
+        vim.api.nvim_set_hl(0, group, opts)
 end
 
 hl("Normal", { fg = c.fg, bg = c.bg })
@@ -29,9 +29,9 @@ hl("NormalNC", { fg = c.fg, bg = c.bg })
 hl("FloatBorder", { fg = c.fg, bg = c.bg })
 hl("LineNr", { fg = c.muted })
 hl("VertSplit", { fg = c.bg })
-hl("StatusLine", { fg = c.fg, bg = "#151515" })
-hl("StatusLineNc", { fg = c.fg, bg = "#151515" })
-hl("Visual", { bg = "#252525" })
+hl("StatusLine", { fg = c.fg, bg = "#0f0f0f" })
+hl("StatusLineNc", { fg = c.subtle, bg = "#0a0a0a" })
+hl("Visual", { bg = "#1a1a1a" })
 hl("Boolean", { fg = c.boolean })
 
 hl("Comment", { fg = c.muted })
