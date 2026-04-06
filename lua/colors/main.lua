@@ -14,6 +14,7 @@ function M.setup()
                 subtle  = "#2a2f3a",
                 accent  = "#c8875b",
                 error   = "#f7768e",
+
                 warning = "#e0af68",
                 hint    = "#9ece6a",
                 info    = "#7dcfff",
@@ -41,7 +42,6 @@ function M.setup()
         set(0, "PmenuThumb", { bg = palette.muted })
 
 
-        -- 💬 Text
         set(0, "Comment", { fg = palette.muted })
         set(0, "Constant", { fg = palette.fg })
         set(0, "String", { fg = palette.fg })
@@ -51,7 +51,6 @@ function M.setup()
         set(0, "Keyword", { fg = palette.accent })
         set(0, "Type", { fg = palette.fg })
 
-        -- ⚠️ Diagnostics (LSP)
         set(0, "DiagnosticError", { fg = palette.error })
         set(0, "DiagnosticWarn", { fg = palette.warning })
         set(0, "DiagnosticInfo", { fg = palette.info })
@@ -62,7 +61,6 @@ function M.setup()
         set(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = palette.info })
         set(0, "DiagnosticUnderlineHint", { undercurl = true, sp = palette.hint })
 
-        -- 🔍 Treesitter (minimal override)
         set(0, "@comment", { fg = palette.muted })
         set(0, "@keyword", { fg = palette.accent })
         set(0, "@function", { fg = palette.fg })
@@ -70,21 +68,17 @@ function M.setup()
         set(0, "@variable", { fg = palette.fg })
         set(0, "@type", { fg = palette.fg })
 
-        -- 🔧 LSP references
         set(0, "LspReferenceText", { bg = "#222733" })
         set(0, "LspReferenceRead", { bg = "#222733" })
         set(0, "LspReferenceWrite", { bg = "#222733" })
 
-        -- FZF-Lua (fallback groups)
         set(0, "FzfLuaNormal", { bg = palette.bbg })
         set(0, "FzfLuaBorder", { fg = palette.subtle })
-        set(0, "FzfLuaCursorLine", { bg = palette.subtle })
+        set(0, "FzfLuaCursorLine", { bg = palette.accent, fg = palette.fg })
 
-        -- 📊 Statusline
         set(0, "StatusLine", { fg = palette.fg, bg = palette.bg })
         set(0, "StatusLineNC", { fg = palette.muted, bg = palette.bg })
 
-        -- 🔹 Misc
         set(0, "MatchParen", { bg = "#2a2f3a" })
         set(0, "FloatBorder", { fg = palette.subtle, bg = palette.bbg })
 end
