@@ -21,8 +21,8 @@ require("lazy").setup({
                 branch = 'master',
                 lazy = false,
                 build = ":TSUpdate",
+
         },
-        { "dchinmay2/alabaster.nvim" },
         { 'neovim/nvim-lspconfig' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/nvim-cmp' },

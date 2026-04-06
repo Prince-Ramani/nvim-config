@@ -8,7 +8,4 @@ require("plugins.harpoon")
 require("plugins.ts-autotag")
 require("plugins.conform")
 require("plugins.fzf")
-
-vim.g.alabaster_dim_comments = true
-
-vim.cmd.colorscheme("alabaster")
+require("colors.main").setup()

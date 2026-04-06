@@ -3,7 +3,7 @@ local set = vim.keymap.set
 set("i", "<C-c", "<Esc>")
 
 vim.keymap.set("n", "<A-r>", function()
-    dofile(vim.fn.stdpath("config") .. "/init.lua")
+        dofile(vim.fn.stdpath("config") .. "/init.lua")
 end, { desc = "Source init.lua" })
 
 set('n', '<Up>', '<Nop>', { noremap = true, silent = true })
@@ -53,16 +53,16 @@ set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
 set('n', 'm', function()
-    vim.cmd("put! =''")
+        vim.cmd("put! =''")
 end, { noremap = true, silent = true })
 
 function ToggleNetrw()
-    local is_netrw = vim.bo.filetype == "netrw" or vim.fn.bufname("%"):match("NetrwTreeListing") ~= nil
-    if is_netrw then
-        vim.cmd("bd")
-    else
-        vim.cmd("Explore")
-    end
+        local is_netrw = vim.bo.filetype == "netrw" or vim.fn.bufname("%"):match("NetrwTreeListing") ~= nil
+        if is_netrw then
+                vim.cmd("bd")
+        else
+                vim.cmd("Explore")
+        end
 end
 
 set("n", "<leader>o", ":lua ToggleNetrw()<CR>", { noremap = true, silent = true })

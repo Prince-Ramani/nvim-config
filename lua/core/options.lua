@@ -1,12 +1,12 @@
 local opt = vim.opt
 vim.g.mapleader = " "
 
-opt.mouse = ""
+opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.termguicolors = true
-opt.colorcolumn = "80"
+-- opt.colorcolumn = "80"
 opt.syntax = "on"
 opt.tabstop = 8
 opt.shiftwidth = 8
