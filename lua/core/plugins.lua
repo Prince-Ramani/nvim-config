@@ -21,7 +21,6 @@ require("lazy").setup({
                 branch = 'master',
                 lazy = false,
                 build = ":TSUpdate",
-
         },
         { 'neovim/nvim-lspconfig' },
         { 'hrsh7th/cmp-nvim-lsp' },
