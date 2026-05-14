@@ -1,6 +1,5 @@
 local actions = require('fzf-lua.actions')
 
-
 local shared_fd_opts = table.concat({
         '--hidden',
         '--follow',
@@ -25,18 +24,36 @@ local shared_winopts = {
         border = 'none',
         scrollbar = false,
         preview = {
+                hidden = false,
+                scrollbar = false,
+                border = 'single',
+                layout = 'horizontal'
+        },
+}
+
+
+local shared_winopts_files = {
+        border = 'none',
+        scrollbar = false,
+        width = 0.7,
+        height = 0.7,
+        row = 0.3,
+        col = 0.4,
+        preview = {
+                hidden = false,
                 scrollbar = false,
                 border = 'none',
-                layout = 'vertical'
+                layout = 'horizontal'
         },
 }
 
 require('fzf-lua').setup {
         fzf_colors = true,
+        previewer = false,
         fzf_opts = {
-                ['--cycle'] = true,
-                ['--layout'] = 'default',
-                ['--pointer'] = ' ',
+                ['--cycle']        = true,
+                ['--layout']       = 'default',
+                ['--pointer']      = ' ',
                 ['--no-scrollbar'] = "",
         },
 
@@ -68,7 +85,7 @@ require('fzf-lua').setup {
         files = {
                 multiprocess = true,
                 fd_opts = shared_fd_opts,
-                winopts = shared_winopts,
+                winopts = shared_winopts_files,
         },
 
         grep = {
@@ -108,7 +125,7 @@ require('fzf-lua').setup {
 }
 
 vim.keymap.set("n", "<leader>f", function()
-        require("fzf-lua").files { silent = true }
+        require("fzf-lua").files { previewer = false, silent = true }
 end)
 
 vim.keymap.set("n", "<leader>g", function()
