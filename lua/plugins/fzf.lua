@@ -125,7 +125,7 @@ require('fzf-lua').setup {
 }
 
 vim.keymap.set("n", "<leader>f", function()
-        require("fzf-lua").files { previewer = false, silent = true }
+        require("fzf-lua").files { previewer = true, silent = true }
 end)
 
 vim.keymap.set("n", "<leader>g", function()

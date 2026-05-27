@@ -20,6 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
         { 'neovim/nvim-lspconfig' },
         { 'hrsh7th/cmp-nvim-lsp' },
+        { "Shatur/neovim-ayu" },
         { 'hrsh7th/nvim-cmp' },
         {
                 "williamboman/mason.nvim",
