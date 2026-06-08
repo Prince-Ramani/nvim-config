@@ -28,13 +28,13 @@ set('n', '<C-j>', '<C-w>j', { desc = 'Navigate to bottom split' })
 set('n', '<C-k>', '<C-w>k', { desc = 'Navigate to top split' })
 set('n', '<C-l>', '<C-w>l', { desc = 'Navigate to right split' })
 
-set("n", "<C-Up>", ":resize -2<CR>")
-set("n", "<C-Down>", ":resize +2<CR>")
-set("n", "<C-Left>", ":vertical resize -2<CR>")
-set("n", "<C-Right>", ":vertical resize +2<CR>")
+set("n", "<C-Up>", ":resize -2<CR>", { silent = true })
+set("n", "<C-Down>", ":resize +2<CR>", { silent = true })
+set("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
+set("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 
-set("n", "<TAB>", ":bn<CR>")
-set("n", "<S-TAB>", ":bp<CR>")
+set("n", "<TAB>", ":bn<CR>", { silent = true })
+set("n", "<S-TAB>", ":bp<CR>", { silent = true })
 set('n', '<Leader>bl', ':buffers<CR>', { noremap = true, silent = true })
 
 set("n", "n", "nzzzv")
@@ -44,14 +44,15 @@ set('v', '<', '<gv', { noremap = true, silent = true })
 set('v', '>', '>gv', { noremap = true, silent = true })
 
 set("x", "<leader>p", [["_dp]])
-set('n', '<leader>d', '"_dd', { desc = 'Delete line without yanking' })
+set("v", "<leader>dd", '"_d')
+set("n", "<leader>dd", '"_dd')
 
 set("n", "<leader>/", ":nohlsearch<CR>", { desc = "Clear search highlight" })
 
 set('n', '<leader>r', 'ciw', { desc = 'Replace current word' })
 
-set("v", "J", ":m '>+1<CR>gv=gv")
-set("v", "K", ":m '<-2<CR>gv=gv")
+set("x", "J", ":move '>+1<CR>gv-gv", { silent = true })
+set("x", "K", ":move '<-2<CR>gv-gv", { silent = true })
 
 set('n', 'm', function()
         vim.cmd("put! =''")

@@ -9,5 +9,7 @@ require("plugins.conform")
 require("plugins.fzf")
 require("plugins.colorscheme")
 
+vim.lsp.document_color.enable(false)
+
 require("wu")
 -- require("wu-light")

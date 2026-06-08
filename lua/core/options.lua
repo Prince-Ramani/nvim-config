@@ -31,11 +31,9 @@ opt.showmode = false
 opt.clipboard = 'unnamedplus'
 opt.showcmd = false
 opt.ruler = false
-opt.showcmd = false
 opt.statusline = "%= %f %h%m%r"
 opt.cmdheight = 0
 opt.shortmess = "filnxtToOFcIWSC"
 
 opt.cursorline = true
-
 opt.numberwidth = 4
